@@ -5,5 +5,5 @@ app_name = 'fabricante'
 
 urlpatterns = [
     path('cadastro/', views.cadastro, name='cadastro'),
-    path('lista/', views.listar, name='lista'),
+    path('lista/', views.listar, name='listar'),
 ]

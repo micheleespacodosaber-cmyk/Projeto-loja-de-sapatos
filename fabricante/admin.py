@@ -1,3 +1,4 @@
 from django.contrib import admin
+from fabricante.models import Fabricante
 
-# Register your models here.
+admin.site.register(Fabricante)

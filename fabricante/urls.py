@@ -6,4 +6,5 @@ app_name = 'fabricante'
 urlpatterns = [
     path('cadastro/', views.cadastro, name='cadastro'),
     path('lista/', views.listar, name='listar'),
+    path('excluir/<int:codigoFabricante>/', views.excluir, name='excluir_fabricante'),
 ]

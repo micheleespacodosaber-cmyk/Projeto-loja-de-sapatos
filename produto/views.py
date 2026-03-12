@@ -26,3 +26,7 @@ def cadastro(request):
 def listar(request):
     lista_produtos = Produto.objects.all()
     return render(request, 'produto/lista.html', {'produtos': lista_produtos})
+def excluir(request, codigoProduto):
+    produto = Produto.objects.get(pk=codigoProduto)
+    produto.delete()
+    return redirect('produto:listar')

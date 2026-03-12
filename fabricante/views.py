@@ -20,3 +20,7 @@ def cadastro(request):
 def listar(request):
     lista_fabricantes = Fabricante.objects.all()
     return render(request, 'fabricante/lista.html', {'fabricantes': lista_fabricantes})
+def excluir(request, codigoFabricante):
+    fabricante = Fabricante.objects.get(pk=codigoFabricante)
+    fabricante.delete()
+    return redirect('fabricante:listar')

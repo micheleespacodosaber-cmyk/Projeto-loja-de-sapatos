@@ -1,26 +1,37 @@
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Fabricantes</title>
-</head>
-<body>
-    <h1>Lista de Fabricantes</h1>
+{% extends 'base.html' %}
 
-    <table border="1">
-        <tr>
-            <th>Código</th>
-            <th>Nome</th>
-        </tr>
+{% block title %}Lista de Fabricantes{% endblock %}
 
-        {% for fabricante in fabricantes %}
-        <tr>
-            <td>{{ fabricante.codigo }}</td>
-            <td>{{ fabricante.nome }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-</body>
-</html>
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h1 class="card-title mb-4">Lista de Fabricantes</h1>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Código</th>
+                        <th>Nome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for fabricante in fabricantes %}
+                    <tr>
+                        <td>{{ fabricante.codigo }}</td>
+                        <td>{{ fabricante.nome }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="2" class="text-center">Nenhum fabricante cadastrado.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <a href="/" class="btn btn-secondary">Voltar</a>
+    </div>
+</div>
+{% endblock %}

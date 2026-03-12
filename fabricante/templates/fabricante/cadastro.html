@@ -1,29 +1,25 @@
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Fabricante</title>
-</head>
-<body>
-    <h1>Cadastro de Fabricante</h1>
+{% extends 'base.html' %}
 
-    <form id="idFrmCadastroFabricante" name="frmCadastroFabricante" method="post">
-        {% csrf_token %}
+{% block title %}Cadastro de Fabricante{% endblock %}
 
-        <p>
-            <label for="id_codigo">Código:</label>
-            {{ form.codigo }}
-        </p>
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h1 class="card-title mb-4">Cadastro de Fabricante</h1>
 
-        <p>
-            <label for="id_nome">Nome:</label>
-            {{ form.nome }}
-        </p>
-
-        <input type="submit" id="idBtnCadastrarFabricante" name="btnCadastrarFabricante" value="Cadastrar">
-        <input type="reset" id="idBtnLimparFabricante" name="btnLimparFabricante" value="Limpar">
-    </form>
-</body>
-</html>
+                <form method="post" id="idFrmCadastroFabricante" name="frmCadastroFabricante">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-dark" id="idBtnCadastrarFabricante" name="btnCadastrarFabricante">
+                        Cadastrar
+                    </button>
+                    <a href="/" class="btn btn-secondary">Voltar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

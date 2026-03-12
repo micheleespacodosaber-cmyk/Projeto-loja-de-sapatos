@@ -12,12 +12,31 @@
 
                 <form method="post" id="idFrmCadastroFabricante" name="frmCadastroFabricante">
                     {% csrf_token %}
-                    {{ form.as_p }}
+
+                    <div class="mb-3">
+                        <label for="idTxtCodigoFabricante" class="form-label">Código</label>
+                        <input type="number" class="form-control" id="idTxtCodigoFabricante" name="codigo" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="idTxtNomeFabricante" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="idTxtNomeFabricante" name="nome" maxlength="70" required>
+                    </div>
+
                     <button type="submit" class="btn btn-dark" id="idBtnCadastrarFabricante" name="btnCadastrarFabricante">
                         Cadastrar
                     </button>
-                    <a href="/" class="btn btn-secondary">Voltar</a>
+                    <button type="reset" class="btn btn-secondary" id="idBtnLimparFabricante" name="btnLimparFabricante">
+                        Limpar
+                    </button>
+                    <a href="/" class="btn btn-outline-secondary">Voltar</a>
                 </form>
+
+                {% if form.errors %}
+                <div class="alert alert-danger mt-3">
+                    Verifique os dados informados.
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>

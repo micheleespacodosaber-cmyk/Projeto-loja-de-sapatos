@@ -1,5 +1,6 @@
 
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Lista de Produtos{% endblock %}
 
@@ -31,7 +32,9 @@
             <td>{{ produto.preco_venda }}</td>
             <td>{{ produto.cor }}</td>
             <td>{{ produto.data_fabricacao }}</td>
-            <td>{{ produto.imagem }}</td>
+            <td>
+    <img src="{% static 'img/produtos/'|add:produto.imagem %}" alt="{{ produto.nome }}" width="80">
+</td>
             <td>
                 <a href="{% url 'produto:excluir_produto' produto.id %}"
                    class="btn btn-danger btn-sm"

@@ -1,0 +1,66 @@
+
+{% extends 'base.html' %}
+
+{% block title %}SAC{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h1 class="card-title mb-4">Contato - SAC</h1>
+
+                <form method="post" id="idFrmContatoSac" name="frmContatoSac">
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <label for="idTxtNomeCompletoContato" class="form-label">Nome completo</label>
+                        <input type="text" class="form-control" id="idTxtNomeCompletoContato" name="nome_completo" maxlength="100" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="idTxtEmailContato" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" id="idTxtEmailContato" name="email" maxlength="100" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="idTxtTelefoneContato" class="form-label">Telefone</label>
+                        <input type="text" class="form-control" id="idTxtTelefoneContato" name="telefone" maxlength="11" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="idBSelMelhorHoraContato" class="form-label">Melhor hora para contato</label>
+                        <select class="form-select" id="idBSelMelhorHoraContato" name="melhor_hora_contato" required>
+                            <option value="">Selecione</option>
+                            <option value="Manhã">Manhã</option>
+                            <option value="Tarde">Tarde</option>
+                            <option value="Noite">Noite</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="idTxtMensagemContato" class="form-label">Mensagem</label>
+                        <textarea class="form-control" id="idTxtMensagemContato" name="mensagem" rows="5" maxlength="1024" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark" id="idBtnEnviarContato" name="btnEnviarContato">
+                        Enviar
+                    </button>
+
+                    <button type="reset" class="btn btn-secondary" id="idBtnLimparContato" name="btnLimparContato">
+                        Limpar
+                    </button>
+
+                    <a href="/" class="btn btn-outline-secondary">Voltar</a>
+                </form>
+
+                {% if mensagem_sucesso %}
+                <div class="alert alert-success mt-3 mb-0">
+                    Mensagem enviada com sucesso.
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -17,13 +17,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.shortcuts import render
+from fabricante import views as fabricante_views
 
 def index(request):
     return render(request, 'index.html')
 
+def login(request):
+    return render(request, 'login.html')
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
+    path('login/', login, name='login'),
+    path('contato/', fabricante_views.contato, name='contato'),
     path('produto/', include('produto.urls')),
     path('fabricante/', include('fabricante.urls')),
 ]

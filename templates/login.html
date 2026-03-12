@@ -1,0 +1,41 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Cadastro de usuário{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h1 class="card-title mb-4">Login</h1>
+
+                <form id="idFrmLogin" name="frmLogin">
+                    <div class="mb-3">
+                        <label for="idTxtUsuarioLogin" class="form-label">E-mail / Nome de usuário</label>
+                        <input type="email" class="form-control" id="idTxtUsuarioLogin" name="usuarioLogin" maxlength="100" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="idTxtSenhaLogin" class="form-label">Senha</label>
+                        <input type="password" class="form-control" id="idTxtSenhaLogin" name="senhaLogin" minlength="8" maxlength="256" required>
+                    </div>
+
+                    <button type="button" class="btn btn-dark" id="idBtnEntrarLogin" name="btnEntrarLogin">
+                        Entrar
+                    </button>
+
+                    <button type="reset" class="btn btn-secondary" id="idBtnLimparLogin" name="btnLimparLogin">
+                        Limpar
+                    </button>
+
+                    <a href="/" class="btn btn-outline-secondary">Voltar</a>
+                </form>
+
+                <div class="alert alert-secondary mt-3 mb-0">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
